@@ -1,0 +1,21 @@
+{
+  "name": "proyect-chat",
+  "version": "0.0.1",
+  "description": "proyecto de Chat",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "chat",
+    "express",
+    "socket.IO"
+  ],
+  "author": "jjolon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.2",
+    "socket.io": "^2.2.0"
+  }
+}
