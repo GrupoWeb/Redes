@@ -1,11 +1,12 @@
 'use strict'
 
-var express = require('express'),
-    app = express(),
-    http = require('http').createServer(app),
-    io = require('socket.io')(http),
-    port = process.env.PORT || 3000,
-    publicDir = express.static(`${__dirname}/public`)
+var express = require("express"),
+  app = express(),
+  http = require("http").createServer(app),
+  io = require("socket.io")(http),
+  port = process.env.PORT || 3000,
+  publicDir = express.static(`${__dirname}/public`),
+  ip = require("ip");
 
 app
     .use(publicDir)
@@ -19,6 +20,11 @@ http.listen(port, () =>{
 })
 
 io.on('connection',(socket) => {
+    // console.log(
+    //   "El cliente con IP " + socket.handshake.address + " se ha conectado"
+    // );
+     
+     console.log(`client IP: ${ip.address()}`);
     socket.broadcast.emit('new user', {message : 'ha entrado un usuario'})
 
     socket.on('new message', (message) => {
